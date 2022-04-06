@@ -16,10 +16,9 @@ router.get('/', async (req, res) => {
     })
 })
 
-router.get('/:name', async(req, res) => {
-    const { name } = req.params
-    const editedName = name.split('-').join(' ')
-    const ipad = await ipadsOperations({action:'getByName', name:editedName})
+router.get('/:id', async(req, res) => {
+    const { id } = req.params
+    const ipad = await ipadsOperations({ action: 'getByName', id: id })
     res.json({
         status: 'success',
         code: 200,

@@ -1,11 +1,11 @@
 const getAll = require('./getAll')
 
-const getByName = async (name) => {
+const getByName = async (id) => {
     const data = await getAll()
     const iphones = JSON.parse(data)
-    
-    const result = iphones.find(item => item.name === name)
+    const result = iphones.find(item => item.id === JSON.parse(id))
     if (!result) {
+        
         return null
     }
     return result
